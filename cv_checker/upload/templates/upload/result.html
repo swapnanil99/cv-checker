@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATS Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+        .container {
+            width: 500px;
+            margin: 80px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .score {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #4f46e5;
+            margin: 15px 0;
+        }
+        .section {
+            margin-top: 20px;
+        }
+        .section h4 {
+            margin-bottom: 8px;
+        }
+        .box {
+            background: #f1f5f9;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>{{ mode }}</h2>
+
+    <div class="score">{{ score }}%</div>
+
+    <div class="section">
+        <h4>Matched Skills / Words</h4>
+        <div class="box">
+            {% if matched %}
+                {{ matched|join:", " }}
+            {% else %}
+                None
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="section">
+        <h4>Missing Skills / Words</h4>
+        <div class="box">
+            {% if missing %}
+                {{ missing|join:", " }}
+            {% else %}
+                None
+            {% endif %}
+        </div>
+    </div>
+
+    <a href="/">Check Another CV</a>
+</div>
+
+</body>
+</html>
